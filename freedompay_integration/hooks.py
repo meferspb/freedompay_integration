@@ -9,7 +9,7 @@ app_license = "MIT"
 app_version = "1.0.0"
 
 # Required apps
-required_apps = []
+required_apps = ["payments"]
 
 # Includes in <head>
 # ------------------
@@ -93,13 +93,11 @@ after_install = "freedompay_integration.install.after_install"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+    "FreedomPay Settings": {
+        "on_update": "freedompay_integration.doctype.freedompay_settings.freedompay_settings.on_update"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
