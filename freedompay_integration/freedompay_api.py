@@ -27,11 +27,25 @@ class FreedomPayAPI:
             'pg_amount': data.get('amount'),
             'pg_currency': data.get('currency', 'UZS'),
             'pg_description': data.get('description', ''),
-            'pg_result_url': self.settings.result_url or data.get('result_url'),
-            'pg_success_url': self.settings.success_url or data.get('success_url'),
-            'pg_failure_url': self.settings.failure_url or data.get('failure_url'),
-            'pg_check_url': self.settings.check_url or data.get('check_url'),
         }
+
+        # Add URL fields with validation
+        result_url = self.settings.result_url or data.get('result_url')
+        success_url = self.settings.success_url or data.get('success_url')
+        failure_url = self.settings.failure_url or data.get('failure_url')
+        check_url = self.settings.check_url or data.get('check_url')
+
+        if not result_url:
+            frappe.throw("Result URL is required for FreedomPay payment. Please configure it in FreedomPay Settings or provide it in the payment data.")
+
+        payment_data['pg_result_url'] = result_url
+
+        if success_url:
+            payment_data['pg_success_url'] = success_url
+        if failure_url:
+            payment_data['pg_failure_url'] = failure_url
+        if check_url:
+            payment_data['pg_check_url'] = check_url
 
         # Add optional fields
         if data.get('order_id'):
@@ -95,16 +109,30 @@ class FreedomPayAPI:
 
         # Use payout secret key if available
         if self.settings.get_password('secret_key_payout'):
-            # Temporarily switch to payout secret key
-            original_key = self.settings.get_password('secret_key')
-            self.settings.secret_key = self.settings.get_password('secret_key_payout')
+            # Create a temporary settings object with payout key
+            payout_key = self.settings.get_password('secret_key_payout')
 
-            code, feedback = self.connection.post(
+            # Create a mock settings object that returns payout key for get_password('secret_key')
+            class PayoutSettings:
+                def __init__(self, original_settings, payout_key):
+                    self.original_settings = original_settings
+                    self.payout_key = payout_key
+
+                def get_password(self, field_name):
+                    if field_name == 'secret_key':
+                        return self.payout_key
+                    return self.original_settings.get_password(field_name)
+
+                def __getattr__(self, name):
+                    return getattr(self.original_settings, name)
+
+            # Create temporary connection with payout settings
+            temp_connection = FreedomPayConnection()
+            temp_connection.settings = PayoutSettings(self.settings, payout_key)
+
+            code, feedback = temp_connection.post(
                 url=self.urls.create_payout(), data=payout_data
             )
-
-            # Restore original key
-            self.settings.secret_key = original_key
         else:
             code, feedback = self.connection.post(
                 url=self.urls.create_payout(), data=payout_data

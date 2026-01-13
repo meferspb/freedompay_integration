@@ -34,6 +34,9 @@ def create_freedompay_payment(gateway_controller, data):
 
         if code == "SUCCESS":
             settings.integration_request.db_set("status", "Completed", update_modified=False)
+            # Initialize flags if not exists
+            if not hasattr(settings, 'flags'):
+                settings.flags = frappe._dict()
             settings.flags.status_changed_to = "Completed"
 
             # Return redirect URL from payment response
@@ -65,7 +68,7 @@ def create_freedompay_payment(gateway_controller, data):
 
     except Exception as e:
         settings.integration_request.db_set("status", "Failed", update_modified=False)
-        settings.log_error(f"FreedomPay Payment Error: {str(e)}")
+        frappe.log_error(f"FreedomPay Payment Error: {str(e)}")
         return {
             "redirect_to": frappe.redirect_to_message(
                 _("Server Error"),

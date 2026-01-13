@@ -65,7 +65,11 @@ class FreedomPayConnection:
                 signature_string += f"{key}={data[key]};"
 
         # Add secret key
-        signature_string += self.settings.get_password('secret_key')
+        secret_key = self.settings.get_password('secret_key')
+        if not secret_key:
+            frappe.throw("FreedomPay secret key is not configured. Please set it in FreedomPay Settings.")
+
+        signature_string += secret_key
 
         # Calculate MD5
         return hashlib.md5(signature_string.encode('utf-8')).hexdigest()
