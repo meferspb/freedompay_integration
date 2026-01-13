@@ -1,0 +1,6 @@
+{
+  "build": false,
+  "assets": [],
+  "apps": ["freedompay_integration"],
+  "build_command": "echo 'No build required for FreedomPay Integration'"
+}

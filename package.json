@@ -4,9 +4,12 @@
   "description": "FreedomPay payment gateway integration for Frappe",
   "main": "freedompay_integration.py",
   "scripts": {
-    "build": "echo 'No build step required'",
+    "build": "echo 'No build step required for FreedomPay Integration'",
+    "production": "echo 'No production build required'",
     "dev": "echo 'No dev server required'"
   },
+  "dependencies": {},
+  "devDependencies": {},
   "keywords": ["frappe", "freedompay", "payment", "gateway"],
   "author": "Viktor Krasnikov",
   "license": "MIT"
