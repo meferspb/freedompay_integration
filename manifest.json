@@ -11,6 +11,8 @@
   "installable": true,
   "build": false,
   "assets": [],
+  "has_frontend": false,
+  "is_backend_only": true,
   "documentation": "https://github.com/meferspb/freedompay_integration",
   "repository": "https://github.com/meferspb/freedompay_integration"
 }

@@ -1,15 +1,22 @@
 {
   "name": "freedompay_integration",
   "version": "1.0.0",
-  "description": "FreedomPay payment gateway integration for Frappe",
+  "description": {
+    "en": "FreedomPay payment gateway integration for Frappe",
+    "ru": "Интеграция платежного шлюза FreedomPay для Frappe",
+    "es": "Integración de pasarela de pago FreedomPay para Frappe",
+    "uz": "FreedomPay to'lov shlyuzi Frappe uchun integratsiya"
+  },
   "main": "freedompay_integration.py",
   "scripts": {
     "build": "node custom_build.js",
-    "production": "node custom_build.js",
+    "production": "node -r ./esbuild.config.js custom_build.js",
     "dev": "node custom_build.js"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "esbuild": "^0.19.0"
+  },
   "keywords": ["frappe", "freedompay", "payment", "gateway"],
   "author": "Viktor Krasnikov",
   "license": "MIT"

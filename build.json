@@ -2,5 +2,12 @@
   "build": false,
   "assets": [],
   "apps": [],
-  "build_command": "node custom_build.js"
+  "build_command": "node custom_build.js",
+  "override_build": true,
+  "skip_esbuild": true,
+  "error_handling": {
+    "enabled": true,
+    "fallback_language": "en",
+    "supported_languages": ["en", "ru", "es", "uz"]
+  }
 }
