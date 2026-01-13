@@ -15,12 +15,12 @@ required_apps = ["payments"]
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/freedompay_integration/css/freedompay.css"
-app_include_js = "/assets/freedompay_integration/js/freedompay.js"
+# app_include_css = "/assets/freedompay_integration/css/freedompay.css"
+# app_include_js = "/assets/freedompay_integration/js/freedompay.js"
 
 # include js, css files in header of web template
-web_include_css = "/assets/freedompay_integration/css/freedompay.css"
-web_include_js = "/assets/freedompay_integration/js/freedompay.js"
+# web_include_css = "/assets/freedompay_integration/css/freedompay.css"
+# web_include_js = "/assets/freedompay_integration/js/freedompay.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "freedompay_integration/public/scss/website"
