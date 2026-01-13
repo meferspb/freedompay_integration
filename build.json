@@ -2,5 +2,5 @@
   "build": false,
   "assets": [],
   "apps": [],
-  "build_command": "echo 'No build required for FreedomPay Integration'"
+  "build_command": "node custom_build.js"
 }

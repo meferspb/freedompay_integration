@@ -4,9 +4,9 @@
   "description": "FreedomPay payment gateway integration for Frappe",
   "main": "freedompay_integration.py",
   "scripts": {
-    "build": "echo 'No build step required for FreedomPay Integration'",
-    "production": "echo 'No production build required for FreedomPay Integration' && exit 0",
-    "dev": "echo 'No dev server required'"
+    "build": "node custom_build.js",
+    "production": "node custom_build.js",
+    "dev": "node custom_build.js"
   },
   "dependencies": {},
   "devDependencies": {},
