@@ -54,8 +54,8 @@ web_include_js = "/assets/freedompay_integration/js/freedompay.js"
 # Installation
 # ------------
 
-before_install = "freedompay_integration.freedompay_integration.install.before_install"
-after_install = "freedompay_integration.freedompay_integration.install.after_install"
+before_install = "freedompay_integration.install.before_install"
+after_install = "freedompay_integration.install.after_install"
 
 # Uninstallation
 # ------------
