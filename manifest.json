@@ -1,0 +1,14 @@
+{
+  "name": "freedompay_integration",
+  "title": "FreedomPay Integration",
+  "description": "FreedomPay payment gateway integration for Frappe",
+  "publisher": "Viktor Krasnikov",
+  "email": "vmk1981rus@gmail.com",
+  "license": "MIT",
+  "version": "1.0.0",
+  "app_version": "1.0.0",
+  "required_apps": [],
+  "installable": true,
+  "documentation": "https://github.com/meferspb/freedompay_integration",
+  "repository": "https://github.com/meferspb/freedompay_integration"
+}
