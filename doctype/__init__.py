@@ -1,0 +1,1 @@
+# DocTypes for FreedomPay Integration

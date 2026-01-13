@@ -1,0 +1,1 @@
+# FreedomPay Settings DocType

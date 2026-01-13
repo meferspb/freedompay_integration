@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-13 15:11:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "credentials_section",
+  "merchant_id",
+  "secret_key",
+  "column_break_1",
+  "secret_key_payout",
+  "base_url",
+  "urls_section",
+  "result_url",
+  "post_link",
+  "check_url",
+  "success_url",
+  "failure_url"
+ ],
+ "fields": [
+  {
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break",
+   "label": "Credentials"
+  },
+  {
+   "fieldname": "merchant_id",
+   "fieldtype": "Data",
+   "label": "Merchant ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "secret_key",
+   "fieldtype": "Password",
+   "label": "Secret Key (для приема платежей)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secret_key_payout",
+   "fieldtype": "Password",
+   "label": "Secret Key (для выплат)"
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Base URL",
+   "default": "https://api.freedompay.uz",
+   "reqd": 1
+  },
+  {
+   "fieldname": "urls_section",
+   "fieldtype": "Section Break",
+   "label": "URLs"
+  },
+  {
+   "fieldname": "result_url",
+   "fieldtype": "Data",
+   "label": "Result URL",
+   "description": "URL мерчанта для уведомления о результате оплаты"
+  },
+  {
+   "fieldname": "post_link",
+   "fieldtype": "Data",
+   "label": "Post Link",
+   "description": "URL мерчанта для уведомления о результате выплаты"
+  },
+  {
+   "fieldname": "check_url",
+   "fieldtype": "Data",
+   "label": "Check URL",
+   "description": "URL мерчанта для предварительной проверки возможности проведения платежа"
+  },
+  {
+   "fieldname": "success_url",
+   "fieldtype": "Data",
+   "label": "Success URL",
+   "description": "URL мерчанта, на который FreedomPay перенаправляет пользователя после успешной оплаты"
+  },
+  {
+   "fieldname": "failure_url",
+   "fieldtype": "Data",
+   "label": "Failure URL",
+   "description": "URL мерчанта, на который FreedomPay перенаправляет пользователя после не успешной оплаты"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-01-13 15:11:00.000000",
+ "modified_by": "Administrator",
+ "module": "FreedomPay Integration",
+ "name": "FreedomPay Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
