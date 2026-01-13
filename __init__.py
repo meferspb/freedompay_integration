@@ -1,1 +1,0 @@
-# FreedomPay Integration Module
