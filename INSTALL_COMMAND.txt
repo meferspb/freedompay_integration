@@ -1,0 +1,13 @@
+# FreedomPay Integration Installation Command
+
+# Copy and paste this command in your bench directory:
+
+cd /opt/frappe-server/frappe-bench && echo "freedompay_integration" >> apps.txt && bench --site erp.local install-app freedompay_integration
+
+# Or run these commands one by one:
+
+cd /opt/frappe-server/frappe-bench
+echo "freedompay_integration" >> apps.txt
+bench --site erp.local install-app freedompay_integration
+
+# That's it! FreedomPay Integration will be installed.
