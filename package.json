@@ -5,7 +5,7 @@
   "main": "freedompay_integration.py",
   "scripts": {
     "build": "echo 'No build step required for FreedomPay Integration'",
-    "production": "echo 'No production build required'",
+    "production": "exit 0",
     "dev": "echo 'No dev server required'"
   },
   "dependencies": {},
